@@ -1,0 +1,14 @@
+%table
+  %thead
+    %tr
+      %td= ::User.human_attribute_name(:name)
+      %td= ::User.human_attribute_name(:birth_date)
+      %td= ::User.human_attribute_name(:email_addresses)
+      %td Törlés
+  %tbody
+    %tr{'ng-repeat' => 'user in users'}
+      %td {{user.name}}
+      %td {{user.birth_date}}
+      %td {{user.email_addresses}}
+      %td
+        %button{:'ng-click' => "destroy(user.id)"} Törlés

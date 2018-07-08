@@ -1,0 +1,9 @@
+hu:
+  activerecord:
+    models:
+      user: Felhasználó
+    attributes:
+      user:
+        name: Név
+        birth_date: Szül. dátum
+        email_addresses: E-mail címek
