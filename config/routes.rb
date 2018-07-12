@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # Users
 
-  resources :users, only: [ :index, :destroy ]
+  resources :users
 
   root to: 'angular#index'
 

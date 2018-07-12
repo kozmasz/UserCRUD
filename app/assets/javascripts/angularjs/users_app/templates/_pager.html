@@ -1,0 +1,23 @@
+Összesen: {{data.count}} Oldal:
+
+<button ng-show="data.page > 1" ng-click="data.page = 1">&lt;&lt;</button>
+&nbsp;
+<button ng-show="data.page > 2"         ng-click="data.page = data.page - 2">
+  {{data.page - 2}}
+</button>
+<button ng-show="data.page > 1"         ng-click="data.page = data.page - 1">
+  {{data.page - 1}}
+</button>
+
+{{data.page}}/{{pages}}
+
+<button ng-show="data.page < pages"     ng-click="data.page = data.page + 1">
+  {{data.page + 1}}
+</button>
+<button ng-show="data.page < pages - 1" ng-click="data.page = data.page + 2">
+  {{data.page + 2}}
+</button>
+&nbsp;
+<button ng-show="data.page < pages" ng-click="data.page = pages">&gt;&gt;</button>
+
+Oldalanként: <select ng-model="data.per_page" ng-options="i for i in [10,25,50,100]"></select>

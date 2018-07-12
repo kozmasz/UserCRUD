@@ -1,14 +1,46 @@
 %table
   %thead
+    %tr{colspan: 2}
+      %th Új felhasználó
     %tr
-      %td= ::User.human_attribute_name(:name)
-      %td= ::User.human_attribute_name(:birth_date)
-      %td= ::User.human_attribute_name(:email_addresses)
-      %td Törlés
+      %th= ::User.human_attribute_name(:name)
+      %td
+        %input{'ng-model' => 'user.name'}
+    %tr
+      %th= ::User.human_attribute_name(:birth_date)
+      %td
+        %input{'ng-model' => 'user.birth_date'}
+    %tr
+      %th= ::User.human_attribute_name(:email_addresses)
+      %td
+        %button{'ng-click' => "user.emails_attributes.push({email: ''})"} +
+    %tr{'ng-repeat' => 'email in user.emails_attributes'}
+      %td
+      %td
+        %input{'ng-model' => 'email.email'}
+    %tr
+      %td
+      %td
+        %button{'ng-click' => 'create()'} Mentés
+
+%pre {{ JSON.stringify(errors, '', 2) }}
+
+%hr
+%div{pager: 'pager'}
+%table
+  %thead
+    %tr
+      %th= ::User.human_attribute_name(:name)
+      %th= ::User.human_attribute_name(:birth_date)
+      %th= ::User.human_attribute_name(:email_addresses)
+      %th Törlés
   %tbody
     %tr{'ng-repeat' => 'user in users'}
       %td {{user.name}}
       %td {{user.birth_date}}
-      %td {{user.email_addresses}}
       %td
-        %button{:'ng-click' => "destroy(user.id)"} Törlés
+        %span{'ng-repeat' => 'email in user.emails'}
+          {{ email.email }}
+          %br{'ng-hide' => '$last'}
+      %td
+        %button{'ng-click' => "destroy(user.id)"} Törlés

@@ -1,0 +1,11 @@
+hu:
+  activerecord:
+    errors:
+      models:
+        email:
+          invalid_format: Email cím hibás
+    models:
+      email: Email
+    attributes:
+      email:
+        email: Email cím
